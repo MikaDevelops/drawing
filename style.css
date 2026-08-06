@@ -1,0 +1,9 @@
+canvas {
+    outline: 4px solid green;
+    background-color: white;
+    display: block;
+    margin: 0 auto;
+}
+body {
+    margin: 0;
+}
