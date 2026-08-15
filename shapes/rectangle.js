@@ -1,6 +1,6 @@
 class Rectangle extends Shape{
-    constructor(corner1){
-        super();
+    constructor(corner1, options){
+        super(options);
         this.corner1 = corner1;
         this.corner2 = corner1;
     }
@@ -9,13 +9,15 @@ class Rectangle extends Shape{
     }
     draw(ctx){
         ctx.beginPath();
-        ctx.strokeStyle = "rgba(0,0,0,0.75)";
+        ctx.strokeStyle = this.options.strokeColor;
+        ctx.fillStyle = this.options.fillColor;
         ctx.lineWidth = 3;
         const minX = Math.min(this.corner1.x, this.corner2.x);
         const minY = Math.min(this.corner1.y, this.corner2.y);
         const width = Math.abs(this.corner1.x - this.corner2.x);
         const height = Math.abs(this.corner1.y - this.corner2.y);
         ctx.rect(minX,minY,width,height);
-        ctx.stroke();
+        if(this.options.fill) ctx.fill();
+        if(this.options.stroke) ctx.stroke();
     }
 }

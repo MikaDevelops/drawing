@@ -19,10 +19,6 @@ main_canvas.height =    canvasProperties.height;
 const ctx = main_canvas.getContext('2d');
 clearCanvas()
 
-//let path = [];
-//path.type="path"
-//let rectangle = {};
-//rectangle.type = "rect"
 let currentShape = null;
 const shapes = [];
 
@@ -31,15 +27,14 @@ const downCallbackForRect = (e)=>{
         x: e.offsetX,
         y: e.offsetY
     };
-    //rectangle.corner1 = mousePos;
-    currentShape = new Rectangle(mousePos);
+
+    currentShape = new Rectangle(mousePos, getDrawOptions());
 
     const moveCallback = function(e){
         const mousePos = {
         x: e.offsetX,
         y: e.offsetY
         };
-        //rectangle.corner2 = mousePos;
         currentShape.setCorner2(mousePos);
 
         clearCanvas();
@@ -63,7 +58,7 @@ const downCallbackForPath = (e)=>{
         x: e.offsetX,
         y: e.offsetY
     };
-    currentShape = new Path(mousePos);
+    currentShape = new Path(mousePos, getDrawOptions());
 
     const moveCallback = function(e){
         const mousePos = {
@@ -100,30 +95,6 @@ function clearCanvas(){
 function drawShapes(shapes){
     for (shape of shapes){
         shape.draw(ctx);
-    /*     switch(shape.type){
-        case "path":
-                ctx.beginPath();
-                ctx.strokeStyle = "rgba(0,0,0,0.75)";
-                ctx.lineWidth = 3;
-                ctx.moveTo(shape[0].x, shape[0].y);
-                for (let i = 1; i<shape.length;i++){
-                    ctx.lineTo(shape[i].x, shape[i].y)
-                }
-                ctx.stroke();
-        break;
-        case "rect":
-                ctx.beginPath();
-                ctx.strokeStyle = "rgba(0,0,0,0.75)";
-                ctx.lineWidth = 3;
-                const rect = shape;
-                const minX = Math.min(rect.corner1.x, rect.corner2.x);
-                const minY = Math.min(rect.corner1.y, rect.corner2.y);
-                const width = Math.abs(rect.corner1.x - rect.corner2.x);
-                const height = Math.abs(rect.corner1.y - rect.corner2.y);
-                ctx.rect(minX,minY,width,height);
-                ctx.stroke();
-        break; 
-    }*/
     }
 
 }
@@ -139,4 +110,13 @@ function changeTool(tool){
             main_canvas.addEventListener('pointerdown', downCallbackForPath);
         break;
     }
+}
+
+function getDrawOptions(){
+    return {
+        fillColor: fillColor.value,
+        strokeColor: lineColor.value,
+        fill: fillChecked.checked,
+        stroke: strokeChecked.checked
+    };
 }
