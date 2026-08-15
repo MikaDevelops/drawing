@@ -117,6 +117,7 @@ function getDrawOptions(){
         fillColor: fillColor.value,
         strokeColor: lineColor.value,
         fill: fillChecked.checked,
-        stroke: strokeChecked.checked
+        stroke: strokeChecked.checked,
+        strokeWidth: strokeWidth.value
     };
 }

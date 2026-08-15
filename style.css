@@ -21,3 +21,6 @@ body {
     margin: 5px;
     left:0px;
 }
+#strokeWidth{
+    width: 50px;
+}
