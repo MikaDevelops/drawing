@@ -140,7 +140,3 @@ function changeTool(tool){
         break;
     }
 }
-
-/*
-2:10:10 https://youtu.be/PsTUuID27KA?list=PLB0Tybl0UNfaxaLvusZR7KoB1mU-ewTZl&t=7810
-*/

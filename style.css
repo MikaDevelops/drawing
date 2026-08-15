@@ -15,3 +15,9 @@ body {
     margin: 5px;
     left:0px;
 }
+#color_picker{
+    position:absolute;
+    top: 25px;
+    margin: 5px;
+    left:0px;
+}

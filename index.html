@@ -7,10 +7,19 @@
     </head>
     <body>
         <canvas id="main_canvas"></canvas>
-        <select id="tools" onchange="changeTool(this.value);">
-            <option value="path" selected>Path</option>
-            <option value="rectangle">Rectangle</option>
-        </select>
+        
+        <div id="toolBox"></div>
+            <select id="tools" onchange="changeTool(this.value);">
+                <option value="path" selected>Path</option>
+                <option value="rectangle">Rectangle</option>
+            </select>
+            <div id="color_picker">
+            <input type="color" id="lineColor" value="#aa0000" title="line color" /><br>
+            <input type="color" id="fillColor" value="#00aa00" title="fill color" />
+            </div>
+        </div>
+
+        <script src="./shapes/shape.js"></script>
         <script src="./shapes/rectangle.js"></script>
         <script src="./shapes/path.js"></script>
         <script src="script.js"></script>
